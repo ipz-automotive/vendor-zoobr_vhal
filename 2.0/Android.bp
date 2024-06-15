@@ -1,0 +1,32 @@
+cc_binary {
+    name: "android.hardware.automotive.vehicle@2.0-zoobr-service",
+    overrides: [
+        "android.hardware.automotive.vehicle@2.0-service",
+    ],
+    vintf_fragments: [
+        "android.hardware.automotive.vehicle@2.0-zoobr-service.xml",
+    ],
+    init_rc: ["android.hardware.automotive.vehicle@2.0-zoobr-service.rc"],
+    vendor: true,
+    relative_install_path: "hw",
+    local_include_dirs: ["inc"],
+    srcs: [
+        "VehicleService.cpp",
+        "src/*.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libjsoncpp",
+        "libprotobuf-cpp-lite",
+        "libbinder_ndk",
+        "android.automotive.watchdog-V2-ndk",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "android.hardware.automotive.vehicle@2.0",
+    ],
+    static_libs: [
+        "android.hardware.automotive.vehicle@2.0-manager-lib",
+        "android.hardware.automotive.vehicle@2.0-default-impl-lib",
+    ],
+}

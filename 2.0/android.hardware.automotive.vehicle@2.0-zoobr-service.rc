@@ -1,0 +1,8 @@
+service vendor.vehicle-hal-2.0 /vendor/bin/hw/android.hardware.automotive.vehicle@2.0-zoobr-service
+    interface android.hardware.automotive.vehicle@2.0::IVehicle default
+    class hal
+    user vehicle_network
+    group system inet
+
+on property:sys.boot_completed=1
+    exec - system system -- /system/bin/sh /vednor/etc/init_cluster.sh

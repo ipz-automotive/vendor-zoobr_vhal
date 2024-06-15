@@ -1,0 +1,9 @@
+type hal_vehicle_zoobr, domain;
+type hal_vehicle_zoobr_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(hal_vehicle_zoobr);
+
+hal_server_domain(hal_vehicle_zoobr, hal_vehicle)
+
+# For changing VHAL property via System Property 
+get_prop(hal_vehicle_zoobr, debug_prop)
